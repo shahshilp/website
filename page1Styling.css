@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    box-sizing:border-box;
+}
+body{
+	height:1100px;
+    font-size:100%;
+    background: -webkit-linear-gradient(red, black);
+    background-repeat:no-repeat;
+}
+.Navigation{
+    height: 50px;
+    width: 70%;
+    display: block;
+    border: 2px solid #000000;
+    background-color:#E50D11;
+    margin: 0 auto;
+}
+ul{
+	text-align:center;
+}
+li{
+  display: inline-block;
+  padding: 0px 4.5%; 
+  z-index:10;
+}
+.pages{
+	background-color:#E50D11;
+	border:medium;
+	font-size: 1.5vw;
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+a{
+	color:#000000;
+	border:none;
+	text-decoration:none;
+}
+#back{
+	display:block;
+	background-color:#FFFFFF;
+	margin:0px 14.9%;
+	height:500px;
+	width:69%;
+	position:absolute;
+	z-index:-1;
+}
+
+#Space{
+	font-size:1.7vw;
+	color:#FF0004;
+	font-family:Copperplate, "Copperplate Gothic Light", fantasy;
+	text-align:center;
+	margin:0px;
+	padding:0px;
+}
