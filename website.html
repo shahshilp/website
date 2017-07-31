@@ -1,32 +1,81 @@
 <!doctype html>
 <html>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="javaFile.js"></script> 
   <head>
     <meta charset="utf-8">
-    <title>test</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <script src="javaFile.js"></script> 
+    <title>Home Page</title>
   </head>
 
   <body onclick="myFunction()">
     <div class="back">
       <div class="Navigation">
-        <ul id="ul">
-          <li class="pages"><a href="Page1.html" target="_blank">Page 1</a></li>
-          <li class="pages"><a href="Page2.html" target="_blank">Page 2</a></li>
-          <li class="pages"><a href="Page3.html" target="_blank">Page 3</a></li>
-          <li class="pages"><a href="Page4.html" target="_blank">Page 4</a></li>
-          <li class="pages"><a href="Page5.html" target="_blank">Page 5</a></li>
+        <!-- Start Navigation list -->
+        <ul>
+          <!--Link to first Page -->
+          <div class="dropdown">
+            <li class="dropbtn" onclick="page1Drop()">Space</li>
+            <div id="drop1" class="dropdownContent">
+              <a href="page1.html" target="_blank">Moon</a>
+              <a href="page1.html" target="_blank">Sun</a>
+              <a href="page1/html" target="_blank">Galaxy</a>
+            </div>
+          </div>
+
+          <!--Link to second Page -->
+          <div class="dropdown">
+            <li class="dropbtn" onclick="page2Drop()">Architecture</li>
+            <div id="drop2" class="dropdownContent">
+              <a href="page2.html" target="_blank">History</a>
+              <a href="page2.html" target="_blank">Mordern</a>
+              <a href="page2.html" target="_blank">Future</a>
+            </div>
+          </div>
+
+          <!-- Link to third page -->
+          <div class="dropdown">
+          <li class="dropbtn" onclick="page3Drop()">Nature</li>
+          <div id="drop3" class="dropdownContent">
+              <a href="page3.html" target="_blank">Lankmarks</a>
+              <a href="page3.html" target="_blank">Oceans</a>
+              <a href="page3.html" target="_blank">Atmosphere</a>
+            </div>
+          </div>
+
+          <!-- Link to fourth page -->
+          <div class="dropdown">
+          <li class="dropbtn" onclick="page4Drop()">Animals</li>
+          <div id="drop4" class="dropdownContent">
+              <a href="page4.html" target="_blank">Exotic</a>
+              <a href="page4.html" target="_blank">Endangered</a>
+              <a href="page4.html" target="_blank">Cute</a>
+            </div>
+          </div>
+
+          <!-- Link to fifth page -->
+          <div class="dropdown">
+          <li class="dropbtn" onclick="page5Drop()">Art</li>
+          <div id="drop5" class="dropdownContent">
+              <a href="page5.html">History</a>
+              <a href="page5.html">Modern</a>
+              <a href="page5.html">Impact</a>
+            </div>
+          </div>
         </ul>
     </div>
+    <!-- End Navigation -->
+
+    <!--Slideshow -->
     <div class="slideshow" id="slide">
-      <div class=slide>
+      <div>
         <button type="button" class="button" id="back" onclick="back()">←</button> 
         <button type="button" class="button" id="next" onclick="next()">→</button> 
       </div>
     </div>
     
+    <!--Pictures + Text of pages -->
     <div id="Space" >
-      <p1 class="text" id="s">Space</p1>
+      <p1 class="text">Space</p1>
     </div>
     <div id="Arch">
       <p2 class="text">Architecture</p2>
@@ -40,18 +89,18 @@
     <div id="Art">
      <p5 class="text">Art</p5>
     </div>
-  </div>
-</body>
 
-<footer>
-  <div class="SocialMedia">
-    <ul>
-      <li class ="links"> <a href="https://www.facebook.com/" target="_blank"><input type="image" src="http://icons.iconarchive.com/icons/danleech/simple/64/facebook-icon.png" name="facebook" class="btTxt submit" id="saveForm"/></a></li>
-      <li class ="links"> <a href="https://twitter.com/" target="_blank"><input type="image" src="http://icons.iconarchive.com/icons/xenatt/minimalism/64/App-Twitter-icon.png" name="twitter" class="btTxt submit" id="saveForm"/></a></li>
-      <li class ="links"> <a href="https://www.instagram.com/" target="_blank"><input type="image" src="http://fresnostate.edu/webresources/images/64x64/64x64-instagram.png" name="instagram" class="btTxt submit" id="saveForm"/></a></li>
-      <li class ="links"> <a href="https://www.youtube.com/" target="_blank"><input type="image" src="http://fresnostate.edu/webresources/images/64x64/64x64-youtube.png" name="youtube" class="btTxt submit" id="saveForm"/></a></li>
-    </ul>
-  </div>
-  </div>
-</footer>
+    <hr>
+
+    <!-- Media Buttons -->
+    <div class="SocialMedia">
+      <ul>
+        <li class ="links"> <a href="https://www.facebook.com/" target="_blank"><input type="image" src="http://icons.iconarchive.com/icons/danleech/simple/64/facebook-icon.png" name="facebook" class="btTxt submit" id="saveForm"/></a></li>
+        <li class ="links"> <a href="https://twitter.com/" target="_blank"><input type="image" src="http://icons.iconarchive.com/icons/xenatt/minimalism/64/App-Twitter-icon.png" name="twitter" class="btTxt submit" id="saveForm"/></a></li>
+        <li class ="links"> <a href="https://www.instagram.com/" target="_blank"><input type="image" src="http://fresnostate.edu/webresources/images/64x64/64x64-instagram.png" name="instagram" class="btTxt submit" id="saveForm"/></a></li>
+        <li class ="links"> <a href="https://www.youtube.com/" target="_blank"><input type="image" src="http://fresnostate.edu/webresources/images/64x64/64x64-youtube.png" name="youtube" class="btTxt submit" id="saveForm"/></a></li>
+      </ul>
+    </div>
+    </div>
+  </body>
 </html>
