@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    box-sizing:border-box;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+body{
+	background-image: url("spaceBackground.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%; 
+    font-size:100%;
+    height:900px;
+    max-height:900px;
+    background-repeat:no-repeat;
+}
+label{
+	font-size: 2vw;
+	color: white;
+	padding: 5px 10px;
+	margin: 5px 15%;
+}
+#welcome{
+	font-size: 4vw;
+	margin: 5px 15%;
+	padding: 5px 5% 30px 5%;
+}
+input[type=text]{
+	width: 30%;
+	border-bottom: 2px solid white;
+	opacity: 0.3;
+	padding: 5px 10px;
+	margin: 7px 15%;
+}
+#submit{
+	cursor: pointer;
+	font-size: 2vw;
+	color: white;
+	border: 3px solid #4286f4;
+	border-radius: 10px;
+	background-color: #4286f4;
+	padding: 3px 10%;
+	margin: 7px 15%;
+}
