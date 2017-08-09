@@ -9,6 +9,27 @@ body{
     max-height:1500px;
     background-repeat:no-repeat;
 }
+/*Start Navigation bar */
+.Navigation{
+    height: 50px;
+    width: 100%;
+    display: block;
+    border: 1px solid #000000;
+    margin: 0 auto;
+    border-radius: 15px 15px 0px 0px;
+}
+ul{
+	text-align:center;
+  position: relative;
+  margin: 7px auto;
+  font-size: 1.7vw;
+}
+li{
+  display: inline-block; 
+  padding: 0px 5%;
+}
+/*End Navigation Bar */
+/*Start slideshow */
 .back{
     position:absolute;
     height:1000px;
@@ -52,24 +73,7 @@ body{
   margin:100px 0px;
   float:right;
 }
-.Navigation{
-    height: 50px;
-    width: 100%;
-    display: block;
-    border: 1px solid #000000;
-    margin: 0 auto;
-    border-radius: 15px 15px 0px 0px;
-}
-ul{
-	text-align:center;
-  position: relative;
-  bottom: 10px;
-  font-size: 1.7vw;
-}
-li{
-  display: inline-block; 
-  padding: 0px 5%;
-}
+/*End Slideshow */
 #Space,#Arch,#Nature,#Animals,#Art{
     display: block;
     height:220px;
