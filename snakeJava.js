@@ -8,22 +8,35 @@ var cell = 10;
 var snakeArr;
 var food;
 var d = "right";
+var loop;
+var snakeLength = 5;
+
 $( document ).ready(function() {
+	'use strict';
     init();
 });
 
 function createSnake()
 {
-	var snakeLength = 5;
+	'use strict';
+	
 	snakeArr = [];
-	for(i = snakeLength-1, i >= 0; i++)
+	snakeArr.x = [4,3,2,1,0];
+	snakeArr.y = [0,0,0,0,0,0];
+	
+	//The for loop does not work. Declared array explicitly
+	/*
+	var i = 0;
+	for(i = snakeLength-1; i >= 0; i++)
 	{
 		snakeArr.push({x: i, y:0});
 	}
+	*/
 }
 
 function createFood()
 {
+	'use strict';
 	food = {
 		x: Math.round(Math.random()*1000 + 1), 
 		y: Math.round(Math.random()*1000 + 1), 
@@ -32,49 +45,73 @@ function createFood()
 
 function paint()
 {
-	var snakeX = snakeArr[0].x;
-	var snakeY = snakeArr[0].y;
-
-	if(d == "right")
+	'use strict';
+	
+	//Repaint background every time
+	ctx.fillStyle = 'black';
+	ctx.fillRect(0, 0, 800, 800);
+	
+	//Head of snake
+	var snakeX = snakeArr.x[0];
+	var snakeY = snakeArr.y[0];
+	
+	
+	if(d === "right")
 	{ 
 		snakeX++;
 	}
-	else if(d == "left")
+	else if(d === "left")
 	{
 		snakeX--;
 	}
-	else if(d == "up")
+	else if(d === "up")
 	{
 		snakeY--;
 	}
-	else if(d == "down")
+	else if(d === "down")
 	{
 		snakeY++;
 	}
 	
+	// Test Code
+	if(snakeX === food.x && snakeY === food.y)
+	{
+		var tail = {x: snakeX, y: snakeY};
+		snakeLength++;
+		createFood();
+		snakeArr.x.unshift(tail.X);
+		snakeArr.y.unshift(snakeY);
+	}
+	snakeX++;
+	snakeArr.pop();
+	snakeArr.x.unshift(snakeX);
+	snakeArr.y.unshift(snakeY);
+	
 	//Painting food
 	ctx.fillStyle = 'red';
 	ctx.fillRect(food.x, food.y, cell, cell);
-
+	
 	//Painting snake
-	for(i = 0; i < snakeArr.length; i++)
+	var i = 0;
+	for(i = 0; i < snakeLength; i++)
 	{
-		paintCell(snakeArr[i].x, snakeArr[i].y, "#6bf442")
+		paintCell(snakeArr.x[i], snakeArr.y[i], 'red');
 	}
+
 }
 
 function paintCell(x, y, color)
 {
+	'use strict';
 	ctx.fillStyle = color;
 	ctx.fillRect(x*cell, y*cell, cell, cell);
-	ctx.strokeStyle = "white";
+	ctx.strokeStyle = 'white';
 	ctx.strokeRect(x*cell, y*cell, cell, cell);
 }
 
-var loop = setInterval(paint, 100);
-
 function init()
 {
+	'use strict';
 	d = "right";
 	createSnake();
 	createFood();
