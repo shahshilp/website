@@ -4,12 +4,16 @@ canvas.width = canvas.scrollWidth;
 canvas.height = canvas.scrollHeight;
 var ctx = canvas.getContext('2d');
 
+var w = 500;
+var h = 500;
 var cell = 10;
 var snakeArr;
 var food;
 var d = "right";
 var loop;
-var snakeLength = 5;
+var snakeLength = 8;
+var score = 0;
+var level = 1;
 
 $( document ).ready(function() {
 	'use strict';
@@ -21,8 +25,8 @@ function createSnake()
 	'use strict';
 	
 	snakeArr = [];
-	snakeArr.x = [4,3,2,1,0];
-	snakeArr.y = [0,0,0,0,0,0];
+	snakeArr.x = [3,2,1,0];
+	snakeArr.y = [0,0,0,0];
 	
 	//The for loop does not work. Declared array explicitly
 	/*
@@ -38,8 +42,8 @@ function createFood()
 {
 	'use strict';
 	food = {
-		x: Math.round(Math.random()*1000 + 1), 
-		y: Math.round(Math.random()*1000 + 1), 
+		x: Math.floor(Math.random()*(w / 10) + 1), 
+		y: Math.floor(Math.random()*(w /10) + 1), 
 	};
 }
 
@@ -49,13 +53,13 @@ function paint()
 	
 	//Repaint background every time
 	ctx.fillStyle = 'black';
-	ctx.fillRect(0, 0, 800, 800);
+	ctx.fillRect(0, 0, w, h);
 	
 	//Head of snake
 	var snakeX = snakeArr.x[0];
 	var snakeY = snakeArr.y[0];
 	
-	
+	//Checking key press for direction
 	if(d === "right")
 	{ 
 		snakeX++;
@@ -72,25 +76,48 @@ function paint()
 	{
 		snakeY++;
 	}
-	
-	// Test Code
+
+	//Food collision
 	if(snakeX === food.x && snakeY === food.y)
 	{
 		var tail = {x: snakeX, y: snakeY};
 		snakeLength++;
+		score += 10;
 		createFood();
-		snakeArr.x.unshift(tail.X);
+		updateLevel();
+		snakeArr.x.unshift(tail.x);
+		snakeArr.y.unshift(tail.y);
+		document.getElementById("score").innerHTML = "Score: " + score;
+		document.getElementById("level").innerHTML = "Level: " + level;
+	}
+	else //Moving snake
+	{
+		snakeArr.pop();
+		snakeArr.x.unshift(snakeX);
 		snakeArr.y.unshift(snakeY);
 	}
-	snakeX++;
-	snakeArr.pop();
-	snakeArr.x.unshift(snakeX);
-	snakeArr.y.unshift(snakeY);
-	
+
+	// Collision with wall
+	if(snakeX >= (w / 10)) //Collision with right wall
+	{
+		init();
+	}
+	else if (snakeX <= -1) //Collision with left wall
+	{
+		init();
+	}
+	else if (snakeY >= (h / 10)) //Collision with bottom wall
+	{
+		init();
+	}
+	else if (snakeY <= -1) //Collision with top wall
+	{
+		init();
+	}
+
 	//Painting food
-	ctx.fillStyle = 'red';
-	ctx.fillRect(food.x, food.y, cell, cell);
-	
+	paintCell(food.x, food.y, 'red');
+
 	//Painting snake
 	var i = 0;
 	for(i = 0; i < snakeLength; i++)
@@ -98,6 +125,41 @@ function paint()
 		paintCell(snakeArr.x[i], snakeArr.y[i], 'red');
 	}
 
+}
+function updateLevel()
+{
+	//Changing levels
+	if(score == 10)
+	{
+		level++;
+		updateInterval(100)
+	}
+	else if (score == 40)
+	{
+		level++;
+		updateInterval(80);
+	}
+	else if (score == 70)
+	{
+		level++;
+		updateInterval(60);
+	}
+	else if (score == 100)
+	{
+		level++;
+		updateInterval(40);
+	}
+	else if (score == 130)
+	{
+		level++;
+		updateInterval(20);
+	}
+}
+function updateInterval(interval)
+{
+	clearInterval(loop);
+	loop = setInterval(paint, interval);
+	
 }
 
 function paintCell(x, y, color)
@@ -109,88 +171,40 @@ function paintCell(x, y, color)
 	ctx.strokeRect(x*cell, y*cell, cell, cell);
 }
 
+//Keyboard action
+window.onkeyup = function(e) {
+   var key = e.keyCode ? e.keyCode : e.which;
+
+   if (key == 37) 
+   {
+       d = 'left';
+       right = false;
+   }
+   else if (key == 38)
+   {
+       d = 'up';
+   }
+   else if (key == 39)
+   {
+       d = 'right';
+   }
+   else if (key == 40) 
+   {
+       d = 'down';
+   }
+}
+
 function init()
 {
 	'use strict';
 	d = "right";
+	snakeLength = 4;
+	score = 0;
+	level = 1;
+	document.getElementById("score").innerHTML = "Score: " + score;
+	document.getElementById("level").innerHTML = "Level: " + level;
 	createSnake();
 	createFood();
-
-	loop = setInterval(paint, 100);
+	clearInterval(loop);
+	updateInterval(150);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function snakeSquare(x, y){
-	ctx.fillStyle = '#6bf442';
-	ctx.fillRect(x*snakeSize,y*snakeSize,snakeSize,snakeSize);
-}
-function paintFood(x,y){
-    ctx.fillStyle = '#6bf442';
-	ctx.fillRect(xPos,yPos,snakeSize,snakeSize);
-}
-
-function drawSnake(){
-	var length = 4;
-	snake = [];
-
-	for(i = length; i >= 0; i--)
-	{
-		snake.push(
-		{
-			x:i;
-			y:0;
-		})
-		snakeSquare(snake[i].x,snake[i].y);
-	}
-}
-function createFood(){
-    var xPos = (Math.random() * 1000) + 1;   
-    var yPos = (Math.random() * 1000) + 1;
-
-    for (i = 0; i <= snake.length; i++)
-    {
-    	if(xPos == snake[i].x || yPos == snake[i].y)
-    	{
-    		xPos = (Math.random() * 1000) + 1;   
-    		yPos = (Math.random() * 1000) + 1;
-    	}
-    }
-    paintFood(xPos,yPos);
-}
-
-function snakeCollision(x, y, arr){
-	for(i = 0; i < arr.length; i++)
-	{
-		if (arr[i].x == x && arr[i].y == y)
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
-function paint() {
-	var snakeX = snake[0].x;
-	var snakeY = snake[0].y;
-
-	drawSnake();
-}
-
-function init() {
-
-  }
-  */
-
