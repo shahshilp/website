@@ -42,8 +42,8 @@ function createFood()
 {
 	'use strict';
 	food = {
-		x: Math.floor(Math.random()*(w / 10) + 1), 
-		y: Math.floor(Math.random()*(w /10) + 1), 
+		x: Math.floor(Math.random()*(w / 10)), 
+		y: Math.floor(Math.random()*(w /10)), 
 	};
 }
 
@@ -100,21 +100,37 @@ function paint()
 	// Collision with wall
 	if(snakeX >= (w / 10)) //Collision with right wall
 	{
-		init();
+		deleteSnake();
+		setTimeout(function() {init();}, 2000);
 	}
 	else if (snakeX <= -1) //Collision with left wall
 	{
-		init();
+		deleteSnake();
+		setTimeout(function() {init();}, 2000);
 	}
 	else if (snakeY >= (h / 10)) //Collision with bottom wall
 	{
-		init();
+		deleteSnake();
+		setTimeout(function() {init();}, 2000);
 	}
 	else if (snakeY <= -1) //Collision with top wall
 	{
-		init();
+		deleteSnake();
+		setTimeout(function() {init();}, 2000);
 	}
 
+	//Collision with self
+	
+	var j = 1;
+	for (j = 1; j < snakeLength; j++)
+	{
+		if (snakeX == snakeArr.x[j] && snakeY == snakeArr.y[j])
+		{
+			deleteSnake();
+			setTimeout(function() {init();}, 2000);
+		}
+	}
+	
 	//Painting food
 	paintCell(food.x, food.y, 'red');
 
@@ -125,6 +141,10 @@ function paint()
 		paintCell(snakeArr.x[i], snakeArr.y[i], 'red');
 	}
 
+}
+function deleteSnake()
+{
+	snakeArr = [];
 }
 function updateLevel()
 {
@@ -175,20 +195,20 @@ function paintCell(x, y, color)
 window.onkeyup = function(e) {
    var key = e.keyCode ? e.keyCode : e.which;
 
-   if (key == 37) 
+   if (key == 37 && d != "right") 
    {
        d = 'left';
        right = false;
    }
-   else if (key == 38)
+   else if (key == 38 && d != "down")
    {
        d = 'up';
    }
-   else if (key == 39)
+   else if (key == 39 && d != "left")
    {
        d = 'right';
    }
-   else if (key == 40) 
+   else if (key == 40 && d != "up") 
    {
        d = 'down';
    }
