@@ -78,4 +78,18 @@ window.onclick = function(event) {
       }
     }
   }
-} 
+}
+ 
+/* Code to only show Snake Game if user presses 's'
+//Keyboard action
+window.onkeyup = function(e) {
+	var key = e.keyCode ? e.keyCode : e.which;
+	var s = document.getElementById("snakeGame");
+
+	if (key == 83)
+	{
+		s.style.display = 'block';
+	}
+
+}
+*/

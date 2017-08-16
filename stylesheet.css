@@ -9,6 +9,19 @@ body{
     max-height:1500px;
     background-repeat:no-repeat;
 }
+.back{
+    position:absolute;
+    height:1000px;
+    max-height:1100px;
+    min-height:1100px;
+    width:70%;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    margin: 0 15%;
+    background-color: white;
+    z-index: 1;
+}
+
 /*Start Navigation bar */
 .Navigation{
     height: 50px;
@@ -22,102 +35,11 @@ ul{
 	text-align:center;
   position: relative;
   margin: 7px auto;
-  font-size: 1.7vw;
+  font-size: 1em;
 }
 li{
   display: inline-block; 
   padding: 0px 5%;
-}
-/*End Navigation Bar */
-/*Start slideshow */
-.back{
-    position:absolute;
-    height:1000px;
-    max-height:1100px;
-    min-height:1100px;
-    width:70%;
-    border: 1px solid #000000;
-    border-radius: 15px;
-    margin: 0 15%;
-    background-color: white;
-    z-index: 1;
-}
-.slideshow{
-    border: 1px solid #000000;
-    margin: 0%;
-    width: 100%;
-    height:270px;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:cover;
-}
-.button {
-    background-color: rgba(221, 211, 211, 0.5);
-    border: none;
-    border-radius:80px;
-    color: black;
-    padding: 15px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-}
-.button:hover{
-  cursor:pointer;
-}
-#back{
-  margin:100px 0px;
-  float:left;
-}
-#next{
-  margin:100px 0px;
-  float:right;
-}
-/*End Slideshow */
-#Space,#Arch,#Nature,#Animals,#Art{
-    display: block;
-    height:220px;
-    width: 30%;
-	  max-width:400px;
-    background-repeat:no-repeat;
-    background-position:center;
-    text-align: center;
-    background-size:cover;
-}
-#Space{
-    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/ea/d8/c6/ead8c6a5dbdd527800b292b07b5cdb91.jpg");
-    margin:5px 20%;
-    position:absolute;
-}
-#Arch{
-    background-image: url("http://tellmenothing.com/wp-content/uploads/2017/06/Burj-Khalifa.jpg");
-    margin:5px 50.5%;
-}
-#Nature{
-    background-image: url("https://ogledi.bg/img/blog-img/forest_593e748150b51.jpg");
-    margin:0px 20%;
-    position:absolute;
-}
-#Animals{
-    background-image: url("http://i.huffpost.com/gen/1215759/images/o-LION-facebook.jpg");
-    margin:0px 50.5%;
-}
-#Art{
-    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/85/fe/f7/85fef7b1a4188f8a63f29a28eaa6fd09.jpg");
-    margin:0px 20%;
-    position: relative;
-    top: 0.4%;
-}
-.text{
-  display: inline-block;
-  font-size: 45px;
-  font-size: 3.7vw;
-  text-align:center;
-  color:#000000;
-  text-shadow: 2px 2px 2px #ffffff;
-  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
-  position:relative;
-  padding: 6px 5%;
 }
 a{
 	color:#000000;
@@ -131,11 +53,7 @@ a{
   background-color: #bac1ba;
   cursor: pointer;
 }
-p1,p2,p3,p4,p5,p6{
-    position: absolute;
-    top: 50%;
-    margin-top: -0.8em;
-}
+
 
 .dropbtn:hover, .dropbtn:focus {
     background-color: #bac1ba;
@@ -181,3 +99,98 @@ p1,p2,p3,p4,p5,p6{
 .show {
   display:block;
 }
+
+/*End Navigation Bar */
+
+/*Start slideshow */
+.slideshow{
+    border: 1px solid #000000;
+    margin: 0%;
+    width: 100%;
+    height:270px;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+}
+.button {
+    background-color: rgba(221, 211, 211, 0.5);
+    border: none;
+    border-radius:80px;
+    color: black;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+.button:hover{
+  cursor:pointer;
+}
+#back{
+  margin:100px 0px;
+  float:left;
+}
+#next{
+  margin:100px 0px;
+  float:right;
+}
+/*End Slideshow */
+#Space,#Arch,#Nature,#Animals,#Art{
+    display: block;
+    height:220px;
+    max-height: 220px;
+    width: 30%;
+	  max-width:400px;
+    background-repeat:no-repeat;
+    background-position:center;
+    text-align: center;
+    background-size:100% 100%;
+}
+#Space{
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/ea/d8/c6/ead8c6a5dbdd527800b292b07b5cdb91.jpg");
+    margin:5px 20%;
+    position:absolute;
+}
+#Arch{
+    background-image: url("http://tellmenothing.com/wp-content/uploads/2017/06/Burj-Khalifa.jpg");
+    margin:5px 50.5%;
+}
+#Nature{
+    background-image: url("https://ogledi.bg/img/blog-img/forest_593e748150b51.jpg");
+    margin:0px 20%;
+    position:absolute;
+}
+#Animals{
+    background-image: url("http://i.huffpost.com/gen/1215759/images/o-LION-facebook.jpg");
+    margin:0px 50.5%;
+}
+#Art{
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/85/fe/f7/85fef7b1a4188f8a63f29a28eaa6fd09.jpg");
+    margin:0px 20%;
+    position: relative;
+    top: 0.4%;
+}
+.text{
+  display: inline-block;
+  font-size: 45px;
+  font-size: 3.7vw;
+  text-align:center;
+  color:#000000;
+  text-shadow: 2px 2px 2px #ffffff;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  position:relative;
+  padding: 6px 5%;
+}
+
+p1,p2,p3,p4,p5,p6{
+    position: absolute;
+    top: 50%;
+    margin-top: -0.8em;
+}
+
+/* Code to hide snakeGame div
+#snakeGame
+{
+	display: none;
+}
+*/
