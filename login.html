@@ -7,15 +7,29 @@
 </head>
 
 <body>
-  <div class="container">
-	<form action="/action_page.php">
-	  <label id="welcome">Welcome!</label> <br>
- 	  <input type="text" name="username" placeholder="Username"> <br>
- 	  <input type="text" name="password" placeholder="Password"> <br>
+<form action="/action_page.php">
+<div class="row">
+  <div class="col-5">
+    <label id="welcome">Welcome!</label>
+    <br>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col-5">
+      <input type="text" name="username" placeholder="Username">
+      <br>
+      <input type="text" name="password" placeholder="Password">
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-5">
       <div class="genderSelector">
-      	<div class="rad">
+        <div class="rad">
+        <input type="radio" name="gender" value="Male">
           <div class="inside">
-            <input type="radio" name="gender" value="Male">
+            
           </div>
         </div>
         <label class="genderText">Male</label>
@@ -30,10 +44,16 @@
             <input type="radio" name="gender" value="Other">
           </div>
         </div>
-        <label class="genderText">Other </label> <br> 
+        <label class="genderText">Other </label>
+        <br>
       </div>
- 	  <input id="submit" type="Submit" value="Submit">
-    </form>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-4">
+      <input id="submit" type="Submit" value="Submit">
+    </div>
+  </div>
+</form>
 </body>
 </html>

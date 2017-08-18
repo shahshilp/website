@@ -1,27 +1,85 @@
 <!doctype html>
 <html>
 <link rel="stylesheet" href="page1Styling.css">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
-  </head>
-  <body>
-    <div class="back">
-      <div class="row">
-        <div class="col-12">
-          <div class="Navigation">
-            <ul>
-              <li class="pages"><a href="website.html" target="_blank">Home</a></li>
-              <li class="pages"><a href="page2.html" target="_blank">Page 2</a></li>
-              <li class="pages"><a href="page3.html" target="_blank">Page 3</a></li>
-              <li class="pages"><a href="page4.html" target="_blank">Page 4</a></li>
-              <li class="pages"><a href="page5.html" target="_blank">Page 5</a></li>
-              <li> <a href="login.html" target="_blank"> Login </a> </li>
-            </ul>
+<script src="page1Java.js"></script>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page 1</title>
+</head>
+
+<body onclick="myFunction()">
+<div class="back">
+  <!-- Start Navigation list -->
+  <div class="row">
+    <div class="col-12">
+      <div class="Navigation"> 
+        <ul>
+          <div id="home">
+          	<a href="website.html">
+          	<img id="homeButton" src="http://downloadicons.net/sites/default/files/button-home-house-icon-63650.png"  alt="Home Button">
+            </a>
           </div>
-        </div>
+          <!--Link to first Page -->
+          <div class="dropdown">
+            <li class="dropbtn" onclick="page1Drop()">Space</li>
+            <div id="drop1" class="dropdownContent"> 
+            	<a href="page1.html" target="_blank">Moon</a> 
+            	<a href="page1.html" target="_blank">Sun</a> 
+                <a href="page1.html" target="_blank">Galaxy</a> 
+            </div>
+          </div>
+          
+          <!--Link to second Page -->
+          <div class="dropdown">
+            <li class="dropbtn" onclick="page2Drop()">Architecture</li>
+            <div id="drop2" class="dropdownContent"> 
+            	<a href="page2.html" target="_blank">History</a> 
+                <a href="page2.html" target="_blank">Mordern</a> 
+                <a href="page2.html" target="_blank">Future</a> 
+            </div>
+          </div>
+          
+          <!-- Link to third page -->
+          <div class="dropdown">
+            <li class="dropbtn" onclick="page3Drop()">Nature</li>
+            <div id="drop3" class="dropdownContent"> 
+            	<a href="page3.html" target="_blank">Lankmarks</a> 
+                <a href="page3.html" target="_blank">Oceans</a> 
+                <a href="page3.html" target="_blank">Atmosphere</a> 
+            </div>
+          </div>
+          
+          <!-- Link to fourth page -->
+          <div class="dropdown">
+            <li class="dropbtn" onclick="page4Drop()">Animals</li>
+            <div id="drop4" class="dropdownContent"> 
+            	<a href="page4.html" target="_blank">Exotic</a> 
+                <a href="page4.html" target="_blank">Endangered</a> 
+                <a href="page4.html" target="_blank">Cute</a> 
+            </div>
+          </div>
+          
+          <!-- Link to fifth page -->
+          <div class="dropdown">
+            <li class="dropbtn" onclick="page5Drop()">Art</li>
+            <div id="drop5" class="dropdownContent">
+            	<a href="page5.html">History</a> 
+                <a href="page5.html">Modern</a> 
+                <a href="page5.html">Impact</a> 
+             </div>
+          </div>
+          
+          <div class="dropdown" id="login">
+            <li> <a href="login.html" target="_blank"> Login </a> </li>
+          </div>
+        </ul>
       </div>
+      
     </div>
+  </div>
+  <!-- End Navigation list -->
+      </div>
   </body>
 </html>
 

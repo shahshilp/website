@@ -5,15 +5,12 @@
 }
 body{
     font-size:100%;
-    height:1100px;
-    max-height:1500px;
+	height:2000px;
     background-repeat:no-repeat;
 }
 .back{
     position:absolute;
-    height:1000px;
-    max-height:1100px;
-    min-height:1100px;
+    height:auto;
     width:70%;
     border: 1px solid #000000;
     border-radius: 15px;
@@ -21,7 +18,14 @@ body{
     background-color: white;
     z-index: 1;
 }
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+	padding:5px;
+	float: left;
+}
 /* Declaring 12 columns and sizes */
+@media only screen and (min-width: 768px) {
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -34,28 +38,29 @@ body{
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+}
 
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-  border: 2px solid black;
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 /*Start Navigation bar */
 .Navigation{
-    height: 50px;
+    height: auto;
     display: block;
     border: 1px solid #000000;
     margin: 0 auto;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px 15px 15px 15px;
 }
-ul{
-	text-align:center;
+.Navigation ul{
+  text-align:center;
   position: relative;
   margin: 7px auto;
-  font-size: 1em;
+  font-size: 25px;
 }
-li{
+.Navigation li{
   display: inline-block; 
   padding: 0px 5%;
 }
@@ -64,7 +69,18 @@ a{
 	border:none;
 	text-decoration:none;
 }
+#home{
+  display: inline-block; 
+  padding: 0% 1%;
+}
+#homeButton{
+	width:30px;
+	height: 30px;
+	display: block;
+	margin:0% 2%
+}
 #login{
+	font-size: 20px;
   border:2px solid black;
 }
 #login:hover{
@@ -78,7 +94,8 @@ a{
     cursor: pointer;
 }
 .dropbtn{
-    font-size: 1.7vw;
+    font-size: 20px;
+	font-weight:500;
     height: inherit;
     font-family: Copperplate, "Copperplate Gothic Light", fantasy;
     display: inline-block; 
@@ -88,7 +105,7 @@ a{
     position: relative;
     display: inline-block;
     bottom: 5px;
-    font-size: 1.7vw;
+    font-size: 17px;
     padding: 0px 2%;
 }
 /* Dropdown Content (Hidden by Default) */
@@ -154,39 +171,32 @@ a{
 }
 /*End Slideshow */
 #Space,#Arch,#Nature,#Animals,#Art{
-    display: block;
+	padding: 0px;
     height:220px;
     max-height: 220px;
-    width: 30%;
-	  max-width:400px;
+	width:100%;
+	max-width:400px;
     background-repeat:no-repeat;
     background-position:center;
     text-align: center;
     background-size:100% 100%;
+	display: block;
+    margin: 0 auto;
 }
 #Space{
     background-image: url("https://s-media-cache-ak0.pinimg.com/originals/ea/d8/c6/ead8c6a5dbdd527800b292b07b5cdb91.jpg");
-    margin:5px 20%;
-    position:absolute;
 }
 #Arch{
     background-image: url("http://tellmenothing.com/wp-content/uploads/2017/06/Burj-Khalifa.jpg");
-    margin:5px 50.5%;
 }
 #Nature{
     background-image: url("https://ogledi.bg/img/blog-img/forest_593e748150b51.jpg");
-    margin:0px 20%;
-    position:absolute;
 }
 #Animals{
     background-image: url("http://i.huffpost.com/gen/1215759/images/o-LION-facebook.jpg");
-    margin:0px 50.5%;
 }
 #Art{
     background-image: url("https://s-media-cache-ak0.pinimg.com/originals/85/fe/f7/85fef7b1a4188f8a63f29a28eaa6fd09.jpg");
-    margin:0px 20%;
-    position: relative;
-    top: 0.4%;
 }
 .text{
   display: inline-block;

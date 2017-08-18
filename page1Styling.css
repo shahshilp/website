@@ -4,16 +4,13 @@
     box-sizing:border-box;
 }
 body{
-	height:1100px;
     font-size:100%;
-    background: -webkit-linear-gradient(red, black);
+	height:2000px;
     background-repeat:no-repeat;
 }
 .back{
     position:absolute;
-    height:1000px;
-    max-height:1100px;
-    min-height:1100px;
+    height:auto;
     width:70%;
     border: 1px solid #000000;
     border-radius: 15px;
@@ -21,7 +18,14 @@ body{
     background-color: white;
     z-index: 1;
 }
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+	padding:5px;
+	float: left;
+}
 /* Declaring 12 columns and sizes */
+@media only screen and (min-width: 768px) {
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -34,68 +38,101 @@ body{
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
-
-[class*="col-"] {
-	float: left;
-	padding: 15px;
-	border: 2px solid black;
 }
+
 .row::after {
     content: "";
     clear: both;
     display: table;
 }
+
+/*Start Navigation bar */
 .Navigation{
-    height: 50px;
+    height: auto;
     display: block;
-    border: 2px solid #000000;
-    background-color:#E50D11;
+    border: 1px solid #000000;
     margin: 0 auto;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px 15px 15px 15px;
 }
-ul{
-	text-align:center;
-  	position: relative;
-  	margin: 7px auto;
-  	font-size: 1em;
+.Navigation ul{
+  text-align:center;
+  position: relative;
+  margin: 7px auto;
+  font-size: 25px;
 }
-li{
-  display: inline-block;
-  padding: 0px 4.5%; 
-}
-a{
-	color:#000000;
-	border:none;
-	text-decoration:none;
-}
-/*
-.pages{
-	background-color:#E50D11;
-	border:medium;
-	font-size: 1.5vw;
-	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+.Navigation li{
+  display: inline-block; 
+  padding: 0px 5%;
 }
 a{
 	color:#000000;
 	border:none;
 	text-decoration:none;
 }
-#back{
-	display:block;
-	background-color:#FFFFFF;
-	margin:0px 14.9%;
-	height:500px;
-	width:69%;
-	position:absolute;
-	z-index:-1;
+#home{
+  display: inline-block; 
+  padding: 0% 1%;
+}
+#homeButton{
+	width:30px;
+	height: 30px;
+	display: block;
+	margin:0% 2%
+}
+#login{
+	font-size: 20px;
+  border:2px solid black;
+}
+#login:hover{
+  background-color: #bac1ba;
+  cursor: pointer;
 }
 
-#Space{
-	font-size:1.7vw;
-	color:#FF0004;
-	font-family:Copperplate, "Copperplate Gothic Light", fantasy;
-	text-align:center;
-	margin:0px;
-	padding:0px;
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #bac1ba;
+    cursor: pointer;
 }
-*/
+.dropbtn{
+    font-size: 20px;
+	font-weight:500;
+    height: inherit;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    display: inline-block; 
+    z-index:1;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    bottom: 5px;
+    font-size: 17px;
+    padding: 0px 2%;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #4286f4;
+    width:100%;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+#drop5{
+  width: 175%;
+}
+/* Links inside the dropdown */
+.dropdownContent a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+/* Change color of dropdown links on hover */
+.dropdownContent a:hover {
+  background-color: #f1f1f1;
+}
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display:block;
+}
+
+/*End Navigation Bar */
