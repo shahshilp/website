@@ -221,6 +221,16 @@ p1,p2,p3,p4,p5,p6{
     margin-top: -0.8em;
 }
 
+.SocialMedia ul{
+  text-align:center;
+  position: relative;
+  margin: 7px auto;
+  font-size: 25px;
+}
+.SocialMedia li{
+  display: inline-block; 
+  padding: 0px 5%;
+}
 /* Code to hide snakeGame div
 #snakeGame
 {
