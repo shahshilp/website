@@ -16,6 +16,7 @@ var relYPos;
 var g = 1;
 var up = false;
 var downSpeed = 5;
+var keyDown = false;
 
 function Obstacle(xVal, yVal)
 {
@@ -69,12 +70,12 @@ function paint() {
 
 	//Painting player
 	paintCell(player.x, player.y, player.w, player.h, 'blue');
-	//Player gravity
 
+	//Player gravity
 	player.y += downSpeed;
 
 	//Moving player up
-	if(up == true)
+	if(keyDown == true)
 	{
 		player.y -= 15;
 	}
@@ -83,20 +84,17 @@ function paint() {
 window.onkeydown = function(e) {
    var key = e.keyCode ? e.keyCode : e.which;
 
-   if (key == 38) 
+   if(!keyDown)
    {
-       up = true;
+   		keyDown = true;
    }
-}
+  
+};
 window.onkeyup = function(e) {
    var key = e.keyCode ? e.keyCode : e.which;
 
-   if (key == 38) 
-   {
-       up = false;
-   }
-}
-
+   keyDown = false;
+};
 function paintCell(x, y, w, h, color)
 {
 	ctx.fillStyle = color;
